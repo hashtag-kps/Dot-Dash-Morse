@@ -123,12 +123,12 @@ h1 {
 
 .divider { border:none; border-top:1px solid var(--border); margin:0 0 48px; }
 
-.uni-name { font-size:18px; font-weight:700; letter-spacing:-0.3px; margin-bottom:8px; }
-.uni-bio { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:10px; }
-.uni-link {
-  color:var(--mint); text-decoration:none; font-size:14px;
+.uni-name-link {
+  display:block; font-size:18px; font-weight:700; letter-spacing:-0.3px;
+  color:var(--text); text-decoration:none; margin-bottom:0;
+  transition:color .2s;
 }
-.uni-link:hover { text-decoration:underline; }
+.uni-name-link:hover { color:var(--mint); }
 
 .contact-line { font-size:14px; color:var(--text3); margin-top:48px; }
 .contact-line a { color:var(--mint); text-decoration:none; }
@@ -171,15 +171,15 @@ footer {
 <nav>
   <a href="#" class="nav-brand" onclick="showPage('home');return false;">
     <div class="nav-icon">
-      <img src="app icon" alt="" onerror="this.style.display='none'">
+      <img src="https://raw.githubusercontent.com/hashtag-kps/Dot-Dash-Morse/21960c76526555a2dea0bd62fe77b8159fa850d9/dotdash.001.jpeg" alt="Dot Dash" onerror="this.style.display='none'">
     </div>
     <span class="nav-name">Dot Dash</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about" onclick="showPage('home');setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),50);return false;">About</a></li>
     <li><a href="#team" onclick="showPage('home');setTimeout(()=>document.getElementById('team').scrollIntoView({behavior:'smooth'}),50);return false;">Team</a></li>
-    <li><a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a></li>
-    <li><a href="#" onclick="showPage('terms');return false;">Terms of Use</a></li>
+    <li><a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a></li>
+    <li><a href="#terms" onclick="showPage('terms');return false;">Terms of Use</a></li>
   </ul>
 </nav>
 
@@ -189,7 +189,7 @@ footer {
 
   <section id="hero">
     <h1>Dot Dash</h1>
-    <p class="hero-tagline">Fun way to learn Morse code</p>
+    <p class="hero-tagline">A fun and interactive way to learn Morse Code</p>
     <a href="dotdashapp" class="store-btn" target="_blank" id="store-link">
       <img
         src="https://raw.githubusercontent.com/hashtag-kps/Dot-Dash-Morse/8960031874427f73c1b26fc34544afe2670113c5/appdownload.png"
@@ -229,7 +229,7 @@ footer {
     <hr class="divider">
 
     <div class="person">
-      <div class="person-name">Dr. Probeer Shaw</div>
+      <div class="person-name">Dr. Probeer Sahw</div>
       <div class="person-role">Mentor</div>
       <p class="person-bio">A dedicated faculty member and academic guide whose mentorship shaped the direction of this project. Dr. Shaw provided invaluable insights, technical direction, and unwavering support throughout the development journey — from the original Swift Student Challenge submission to this revamped edition.</p>
       <a href="https://www.linkedin.com/in/probeer-sahw/" target="_blank" class="li-link">
@@ -240,19 +240,17 @@ footer {
 
     <hr class="divider">
 
-    <div class="uni-name">Galgotias University</div>
-    <p class="uni-bio">Developed at Galgotias University, Greater Noida, Uttar Pradesh, India.</p>
-    <a href="https://www.galgotiasuniversity.edu.in/" target="_blank" class="uni-link">www.galgotiasuniversity.edu.in ↗</a>
+    <a href="https://www.galgotiasuniversity.edu.in/" target="_blank" class="uni-name-link">Developed at Galgotias University</a>
 
-    <p class="contact-line">For any queries, help and support reach us at <a href="mailto:singhkavyanshpratap@gmail.com">singhkavyanshpratap@gmail.com</a></p>
+    <p class="contact-line">For any queries, help and support reach us at <a href="/cdn-cgi/l/email-protection#b8cbd1d6dfd0d3d9cec1d9d6cbd0c8cad9ccd9c8f8dfd5d9d1d496dbd7d5"><span class="__cf_email__" data-cfemail="d3a0babdb4bbb8b2a5aab2bda0bba3a1b2a7b2a393b4beb2babffdb0bcbe">[email&#160;protected]</span></a></p>
 
   </section>
 
   <footer>
     <span class="footer-brand">Dot Dash</span>
     <div class="footer-links">
-      <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a>
-      <a href="#" onclick="showPage('terms');return false;">Terms of Use</a>
+      <a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
+      <a href="#terms" onclick="showPage('terms');return false;">Terms of Use</a>
     </div>
     <span class="footer-copy">© 2026 Kavyansh Pratap Singh</span>
   </footer>
@@ -300,7 +298,7 @@ footer {
     <p>This Privacy Policy may be updated occasionally. Any changes will be reflected by updating the "Last updated" date.</p>
 
     <h2>Contact</h2>
-    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="mailto:singhkavyanshpratap@gmail.com">singhkavyanshpratap@gmail.com</a></p>
+    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="/cdn-cgi/l/email-protection#12617b7c757a7973646b737c617a62607366736252757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="96e5fff8f1fefdf7e0eff7f8e5fee6e4f7e2f7e6d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a></p>
   </div>
 </div>
 
@@ -334,7 +332,7 @@ footer {
     <p>These Terms may be updated from time to time. Continued use of the App after changes means you accept the updated Terms.</p>
 
     <h2>Contact</h2>
-    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="mailto:singhkavyanshpratap@gmail.com">singhkavyanshpratap@gmail.com</a></p>
+    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="/cdn-cgi/l/email-protection#abd8c2c5ccc3c0caddd2cac5d8c3dbd9cadfcadbebccc6cac2c785c8c4c6"><span class="__cf_email__" data-cfemail="ee9d87808986858f98978f809d869e9c8f9a8f9eae89838f8782c08d8183">[email&#160;protected]</span></a></p>
   </div>
 </div>
 
@@ -345,15 +343,13 @@ function showPage(name) {
   document.getElementById('page-privacy').classList.toggle('active', name === 'privacy');
   document.getElementById('page-terms').classList.toggle('active', name === 'terms');
   window.scrollTo(0, 0);
+  if (name === 'home') history.pushState(null, '', '#');
+  else history.pushState(null, '', '#' + name);
 }
 
-document.getElementById('store-img').onerror = function() {
-  document.getElementById('store-link').outerHTML =
-    '<a href="dotdashapp" class="store-fallback" target="_blank">' +
-    '<span class="sf-icon">&#63743;</span>' +
-    '<span class="sf-text"><small>Download on the</small><span>App Store</span></span>' +
-    '</a>';
-};
-</script>
-</body>
-</html>
+// Handle direct URL with hash on load
+(function() {
+  const hash = window.location.hash;
+  if (hash === '#privacy') showPage('privacy');
+  else if (hash === '#terms') showPage('terms');
+})();
