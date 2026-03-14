@@ -10,8 +10,6 @@
   --mint-light: #5CE5DC;
   --mint-dim: rgba(0,199,190,0.1);
   --bg: #000;
-  --bg2: #0a0a0a;
-  --bg3: #111;
   --text: #f5f5f7;
   --text2: #86868b;
   --text3: #6e6e73;
@@ -48,15 +46,8 @@ nav {
 .nav-icon img { width:100%; height:100%; object-fit:cover; display:block; }
 .nav-name { font-size:16px; font-weight:600; color:var(--text); }
 .nav-links { display:flex; gap:28px; list-style:none; }
-.nav-links a {
-  font-size:14px; color:var(--text2); text-decoration:none; transition:color .2s;
-}
+.nav-links a { font-size:14px; color:var(--text2); text-decoration:none; transition:color .2s; }
 .nav-links a:hover { color:var(--text); }
-
-/* PAGE SWITCH */
-#page-home { display:block; }
-.legal-page { display:none; min-height:100vh; padding:calc(var(--nav-h) + 60px) 24px 80px; }
-.legal-page.active { display:block; }
 
 /* HERO */
 #hero {
@@ -85,29 +76,32 @@ h1 {
   padding:12px 26px; border-radius:12px;
   background:#1c1c1e; border:1px solid rgba(255,255,255,0.12);
   color:var(--text); text-decoration:none;
-  transition:background .2s, transform .2s;
+  transition:background .2s;
 }
-.store-fallback:hover { background:#2c2c2e; transform:scale(1.02); }
-.store-fallback .sf-icon { font-size:22px; }
-.store-fallback .sf-text small { display:block; font-size:11px; color:var(--text2); }
-.store-fallback .sf-text span { font-size:16px; font-weight:600; }
+.store-fallback:hover { background:#2c2c2e; }
+.store-fallback small { display:block; font-size:11px; color:var(--text2); }
+.store-fallback span { font-size:16px; font-weight:600; }
 .platforms { font-size:13px; color:var(--text3); margin-top:14px; }
 
-/* ABOUT */
-#about { padding:120px 40px; max-width:720px; margin:0 auto; }
+/* SHARED SECTION STYLES */
+.section-wrap { padding:120px 40px; max-width:720px; margin:0 auto; }
 .section-label {
   font-size:12px; font-weight:600; letter-spacing:2px;
   text-transform:uppercase; color:var(--mint); margin-bottom:16px;
 }
-.about-title { font-size:clamp(36px,5vw,50px); font-weight:700; letter-spacing:-1.5px; margin-bottom:8px; }
+.section-title {
+  font-size:clamp(36px,5vw,50px); font-weight:700;
+  letter-spacing:-1.5px; margin-bottom:32px;
+}
+.divider { border:none; border-top:1px solid var(--border); margin:0 0 48px; }
+
+/* ABOUT */
 .about-sub { font-size:20px; font-weight:300; color:var(--mint-light); margin-bottom:32px; }
 .about-body p { font-size:16px; color:var(--text2); line-height:1.78; margin-bottom:18px; }
+.about-body p:last-child { margin-bottom:0; }
 
 /* TEAM */
-#team { padding:120px 40px; max-width:720px; margin:0 auto; }
-.team-title { font-size:clamp(36px,5vw,50px); font-weight:700; letter-spacing:-1.5px; margin-bottom:56px; }
-
-.person { margin-bottom:56px; }
+.person { margin-bottom:52px; }
 .person-name { font-size:21px; font-weight:700; letter-spacing:-0.4px; margin-bottom:4px; }
 .person-role { font-size:14px; color:var(--mint); font-weight:500; margin-bottom:14px; }
 .person-bio { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:16px; }
@@ -121,18 +115,23 @@ h1 {
 .li-link:hover { background:var(--mint); color:#000; }
 .li-link svg { width:13px; height:13px; }
 
-.divider { border:none; border-top:1px solid var(--border); margin:0 0 48px; }
+.uni-line { font-size:16px; color:var(--text2); line-height:1.75; }
+.uni-line a { color:var(--text); text-decoration:none; font-weight:600; transition:color .2s; }
+.uni-line a:hover { color:var(--mint); }
 
-.uni-name-link {
-  display:block; font-size:18px; font-weight:700; letter-spacing:-0.3px;
-  color:var(--text); text-decoration:none; margin-bottom:0;
-  transition:color .2s;
+.contact-line { font-size:14px; color:var(--text3); margin-top:40px; }
+
+/* LEGAL SECTIONS */
+.legal-section { padding:80px 40px; max-width:720px; margin:0 auto; }
+.legal-section h2.legal-title {
+  font-size:clamp(28px,4vw,40px); font-weight:700;
+  letter-spacing:-1px; margin-bottom:6px;
 }
-.uni-name-link:hover { color:var(--mint); }
-
-.contact-line { font-size:14px; color:var(--text3); margin-top:48px; }
-.contact-line a { color:var(--mint); text-decoration:none; }
-.contact-line a:hover { text-decoration:underline; }
+.legal-date { font-size:13px; color:var(--text3); margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid var(--border); }
+.legal-section h3 { font-size:16px; font-weight:600; color:var(--mint); margin:28px 0 8px; }
+.legal-section p { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:10px; }
+.legal-section ul { padding-left:20px; margin-bottom:10px; }
+.legal-section li { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:4px; }
 
 /* FOOTER */
 footer {
@@ -143,213 +142,173 @@ footer {
 }
 .footer-brand { font-size:14px; font-weight:600; color:var(--text2); }
 .footer-copy { font-size:13px; color:var(--text3); }
-.footer-links { display:flex; gap:20px; }
-.footer-links a { font-size:13px; color:var(--text3); text-decoration:none; transition:color .2s; }
-.footer-links a:hover { color:var(--mint); }
-
-/* LEGAL */
-.legal-wrap { max-width:680px; margin:0 auto; }
-.back-btn {
-  background:none; border:none; cursor:pointer;
-  color:var(--mint); font-size:14px; font-weight:500;
-  display:inline-flex; align-items:center; gap:6px;
-  margin-bottom:40px; padding:0;
-}
-.back-btn:hover { opacity:.7; }
-.legal-wrap h1 { font-size:36px; font-weight:700; letter-spacing:-1px; margin-bottom:6px; }
-.legal-wrap .date { font-size:13px; color:var(--text3); margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid var(--border); }
-.legal-wrap h2 { font-size:17px; font-weight:600; color:var(--mint); margin:28px 0 8px; }
-.legal-wrap p { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:10px; }
-.legal-wrap ul { padding-left:20px; margin-bottom:10px; }
-.legal-wrap li { font-size:15px; color:var(--text2); line-height:1.75; margin-bottom:4px; }
-.legal-wrap a { color:var(--mint); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand" onclick="showPage('home');return false;">
+  <a href="#hero" class="nav-brand">
     <div class="nav-icon">
       <img src="https://raw.githubusercontent.com/hashtag-kps/Dot-Dash-Morse/21960c76526555a2dea0bd62fe77b8159fa850d9/dotdash.001.jpeg" alt="Dot Dash" onerror="this.style.display='none'">
     </div>
     <span class="nav-name">Dot Dash</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about" onclick="showPage('home');setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),50);return false;">About</a></li>
-    <li><a href="#team" onclick="showPage('home');setTimeout(()=>document.getElementById('team').scrollIntoView({behavior:'smooth'}),50);return false;">Team</a></li>
-    <li><a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a></li>
-    <li><a href="#terms" onclick="showPage('terms');return false;">Terms of Use</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#privacy">Privacy Policy</a></li>
+    <li><a href="#terms">Terms of Use</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
+<section id="hero">
+  <h1>Dot Dash</h1>
+  <p class="hero-tagline">A fun and interactive way to learn Morse Code</p>
+  <a href="dotdashapp" class="store-btn" target="_blank" id="store-link">
+    <img
+      src="https://raw.githubusercontent.com/hashtag-kps/Dot-Dash-Morse/8960031874427f73c1b26fc34544afe2670113c5/appdownload.png"
+      alt="Download on the App Store"
+      id="store-img"
+    >
+  </a>
+  <p class="platforms">Available on iPhone, iPad and Mac</p>
+</section>
 
-<!-- ── HOME ── -->
-<div id="page-home">
+<!-- ABOUT -->
+<section id="about" class="section-wrap">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Dot Dash</h2>
+  <p class="about-sub">A fun and interactive way to learn Morse Code</p>
+  <div class="about-body">
+    <p>Dot Dash makes learning Morse Code simple, fun, and interactive. A reimagined edition of MorseCode, the Swift Student Challenge 2025 winning app, Dot Dash transforms Morse learning into a modern, engaging experience.</p>
+    <p>The app is built around three core modes: Learn, Practice, and Play. Explore Morse patterns and understand how dots and dashes form letters in Learn. Improve speed and recognition through guided exercises in Practice. Then put your skills to the test in Play, where challenges like Secret Agent turn Morse decoding into an exciting mission.</p>
+    <p>With a clean design and intuitive interactions, Dot Dash helps anyone discover the language of dots and dashes — whether you're a beginner or simply curious about Morse Code.</p>
+    <p>Learn to read the rhythm of dots and dashes.</p>
+  </div>
+</section>
 
-  <section id="hero">
-    <h1>Dot Dash</h1>
-    <p class="hero-tagline">A fun and interactive way to learn Morse Code</p>
-    <a href="dotdashapp" class="store-btn" target="_blank" id="store-link">
-      <img
-        src="https://raw.githubusercontent.com/hashtag-kps/Dot-Dash-Morse/8960031874427f73c1b26fc34544afe2670113c5/appdownload.png"
-        alt="Download on the App Store"
-        id="store-img"
-      >
+<!-- TEAM -->
+<section id="team" class="section-wrap">
+  <div class="section-label">Team</div>
+  <h2 class="section-title">The people behind<br>Dot Dash</h2>
+
+  <div class="person">
+    <div class="person-name">Kavyansh Pratap Singh</div>
+    <div class="person-role">Developer and Designer</div>
+    <p class="person-bio">An iOS developer with an eye for design and a love for crafting delightful user experiences. Recognized as a WWDC Scholar 2025 by Apple, Kavyansh combines technical precision with creative vision — building apps that are not just functional, but memorable.</p>
+    <a href="https://www.linkedin.com/in/kavyansh-pratap-singh-6982432b8/" target="_blank" class="li-link">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
     </a>
-    <p class="platforms">Available on iPhone, iPad and Mac</p>
-  </section>
-
-  <section id="about">
-    <div class="section-label">About</div>
-    <h2 class="about-title">Dot Dash</h2>
-    <p class="about-sub">A fun and interactive way to learn Morse Code</p>
-    <div class="about-body">
-      <p>Dot Dash makes learning Morse Code simple, fun, and interactive. A reimagined edition of MorseCode, the Swift Student Challenge 2025 winning app, Dot Dash transforms Morse learning into a modern, engaging experience.</p>
-      <p>The app is built around three core modes: Learn, Practice, and Play. Explore Morse patterns and understand how dots and dashes form letters in Learn. Improve speed and recognition through guided exercises in Practice. Then put your skills to the test in Play, where challenges like Secret Agent turn Morse decoding into an exciting mission.</p>
-      <p>With a clean design and intuitive interactions, Dot Dash helps anyone discover the language of dots and dashes — whether you're a beginner or simply curious about Morse Code.</p>
-      <p>Learn to read the rhythm of dots and dashes.</p>
-    </div>
-  </section>
-
-  <section id="team">
-    <div class="section-label">Team</div>
-    <h2 class="team-title">The people behind<br>Dot Dash</h2>
-
-    <div class="person">
-      <div class="person-name">Kavyansh Pratap Singh</div>
-      <div class="person-role">Developer and Designer</div>
-      <p class="person-bio">An iOS developer with an eye for design and a love for crafting delightful user experiences. Recognized as a WWDC Scholar 2025 by Apple, Kavyansh combines technical precision with creative vision — building apps that are not just functional, but memorable.</p>
-      <a href="https://www.linkedin.com/in/kavyansh-pratap-singh-6982432b8/" target="_blank" class="li-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
-
-    <hr class="divider">
-
-    <div class="person">
-      <div class="person-name">Dr. Probeer Sahw</div>
-      <div class="person-role">Mentor</div>
-      <p class="person-bio">A dedicated faculty member and academic guide whose mentorship shaped the direction of this project. Dr. Shaw provided invaluable insights, technical direction, and unwavering support throughout the development journey — from the original Swift Student Challenge submission to this revamped edition.</p>
-      <a href="https://www.linkedin.com/in/probeer-sahw/" target="_blank" class="li-link">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
-
-    <hr class="divider">
-
-    <a href="https://www.galgotiasuniversity.edu.in/" target="_blank" class="uni-name-link">Developed at Galgotias University</a>
-
-    <p class="contact-line">For any queries, help and support reach us at <a href="/cdn-cgi/l/email-protection#b8cbd1d6dfd0d3d9cec1d9d6cbd0c8cad9ccd9c8f8dfd5d9d1d496dbd7d5"><span class="__cf_email__" data-cfemail="d3a0babdb4bbb8b2a5aab2bda0bba3a1b2a7b2a393b4beb2babffdb0bcbe">[email&#160;protected]</span></a></p>
-
-  </section>
-
-  <footer>
-    <span class="footer-brand">Dot Dash</span>
-    <div class="footer-links">
-      <a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
-      <a href="#terms" onclick="showPage('terms');return false;">Terms of Use</a>
-    </div>
-    <span class="footer-copy">© 2026 Kavyansh Pratap Singh</span>
-  </footer>
-
-</div>
-
-
-<!-- ── PRIVACY ── -->
-<div id="page-privacy" class="legal-page">
-  <div class="legal-wrap">
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
-    <h1>Privacy Policy</h1>
-    <p class="date">Dot Dash – Fun Way to Learn Morse Code · Last updated: March 13, 2026</p>
-
-    <h2>Introduction</h2>
-    <p>Dot Dash – Fun Way to Learn Morse Code ("the App") is designed to help users learn and practice Morse Code in a fun and interactive way. Your privacy is important to us. This Privacy Policy explains how information is handled when you use the App.</p>
-
-    <h2>Information We Collect</h2>
-    <p>The App does not collect, store, transmit, or share any personal information. Specifically:</p>
-    <ul>
-      <li>No account creation is required.</li>
-      <li>No personal information is requested.</li>
-      <li>No location data is collected.</li>
-      <li>No contact information is collected.</li>
-      <li>No device identifiers are stored.</li>
-      <li>No analytics or tracking tools are used.</li>
-    </ul>
-
-    <h2>Local Data Storage</h2>
-    <p>The App may store certain information locally on your device only, such as:</p>
-    <ul>
-      <li>Game scores</li>
-      <li>Progress</li>
-      <li>Settings or preferences</li>
-    </ul>
-    <p>This data remains on your device and is never transmitted to any server.</p>
-
-    <h2>Third-Party Services</h2>
-    <p>The App does not use third-party analytics, advertising networks, or tracking services.</p>
-
-    <h2>Children's Privacy</h2>
-    <p>The App does not collect personal information from anyone, including children under the age of 13. Because no personal data is collected, the App is safe for use by children.</p>
-
-    <h2>Changes to This Privacy Policy</h2>
-    <p>This Privacy Policy may be updated occasionally. Any changes will be reflected by updating the "Last updated" date.</p>
-
-    <h2>Contact</h2>
-    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="/cdn-cgi/l/email-protection#12617b7c757a7973646b737c617a62607366736252757f737b7e3c717d7f"><span class="__cf_email__" data-cfemail="96e5fff8f1fefdf7e0eff7f8e5fee6e4f7e2f7e6d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a></p>
   </div>
-</div>
 
+  <hr class="divider">
 
-<!-- ── TERMS ── -->
-<div id="page-terms" class="legal-page">
-  <div class="legal-wrap">
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
-    <h1>Terms of Use</h1>
-    <p class="date">Dot Dash – Fun Way to Learn Morse Code · Last updated: March 13, 2026</p>
-
-    <h2>Acceptance of Terms</h2>
-    <p>By downloading or using Dot Dash – Fun Way to Learn Morse Code ("the App"), you agree to these Terms and Conditions. If you do not agree with the Terms, please do not use the App.</p>
-
-    <h2>Use of the App</h2>
-    <p>The App is provided for educational and entertainment purposes to help users learn Morse Code. You agree to use the App in a lawful manner and not attempt to misuse or interfere with its functionality.</p>
-
-    <h2>No Account Requirement</h2>
-    <p>The App does not require users to create an account or provide personal information.</p>
-
-    <h2>Intellectual Property</h2>
-    <p>All content in the App, including design, graphics, interface, and educational materials, is the property of the developer unless otherwise stated. You may not copy, reproduce, or redistribute the App content without permission.</p>
-
-    <h2>Disclaimer</h2>
-    <p>The App is provided "as is" without warranties of any kind. While efforts are made to ensure accuracy of Morse Code information, the developer does not guarantee that all content is completely error-free.</p>
-
-    <h2>Limitation of Liability</h2>
-    <p>The developer shall not be held responsible for any direct or indirect damages resulting from the use or inability to use the App.</p>
-
-    <h2>Changes to the Terms</h2>
-    <p>These Terms may be updated from time to time. Continued use of the App after changes means you accept the updated Terms.</p>
-
-    <h2>Contact</h2>
-    <p>Developer: Kavyansh Pratap Singh<br>Email: <a href="/cdn-cgi/l/email-protection#abd8c2c5ccc3c0caddd2cac5d8c3dbd9cadfcadbebccc6cac2c785c8c4c6"><span class="__cf_email__" data-cfemail="ee9d87808986858f98978f809d869e9c8f9a8f9eae89838f8782c08d8183">[email&#160;protected]</span></a></p>
+  <div class="person">
+    <div class="person-name">Dr. Probeer Sahw</div>
+    <div class="person-role">Mentor</div>
+    <p class="person-bio">A dedicated faculty member and academic guide whose mentorship shaped the direction of this project. Dr. Sahw provided invaluable insights, technical direction, and unwavering support throughout the development journey — from the original Swift Student Challenge submission to this revamped edition.</p>
+    <a href="https://www.linkedin.com/in/probeer-sahw/" target="_blank" class="li-link">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
   </div>
-</div>
 
+  <hr class="divider">
+
+  <p class="uni-line">Developed at <a href="https://www.galgotiasuniversity.edu.in/" target="_blank">Galgotias University</a></p>
+  <p class="contact-line">For any queries, help and support reach us at singhkavyanshpratap@gmail.com</p>
+
+</section>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy" class="legal-section">
+  <div class="section-label">Legal</div>
+  <h2 class="legal-title">Privacy Policy</h2>
+  <p class="legal-date">Dot Dash – Fun Way to Learn Morse Code · Last updated: March 13, 2026</p>
+
+  <h3>Introduction</h3>
+  <p>Dot Dash – Fun Way to Learn Morse Code ("the App") is designed to help users learn and practice Morse Code in a fun and interactive way. Your privacy is important to us. This Privacy Policy explains how information is handled when you use the App.</p>
+
+  <h3>Information We Collect</h3>
+  <p>The App does not collect, store, transmit, or share any personal information. Specifically:</p>
+  <ul>
+    <li>No account creation is required.</li>
+    <li>No personal information is requested.</li>
+    <li>No location data is collected.</li>
+    <li>No contact information is collected.</li>
+    <li>No device identifiers are stored.</li>
+    <li>No analytics or tracking tools are used.</li>
+  </ul>
+
+  <h3>Local Data Storage</h3>
+  <p>The App may store certain information locally on your device only, such as:</p>
+  <ul>
+    <li>Game scores</li>
+    <li>Progress</li>
+    <li>Settings or preferences</li>
+  </ul>
+  <p>This data remains on your device and is never transmitted to any server.</p>
+
+  <h3>Third-Party Services</h3>
+  <p>The App does not use third-party analytics, advertising networks, or tracking services.</p>
+
+  <h3>Children's Privacy</h3>
+  <p>The App does not collect personal information from anyone, including children under the age of 13. Because no personal data is collected, the App is safe for use by children.</p>
+
+  <h3>Changes to This Privacy Policy</h3>
+  <p>This Privacy Policy may be updated occasionally. Any changes will be reflected by updating the "Last updated" date.</p>
+
+  <h3>Contact</h3>
+  <p>Developer: Kavyansh Pratap Singh<br>Email: singhkavyanshpratap@gmail.com</p>
+</section>
+
+<!-- TERMS OF USE -->
+<section id="terms" class="legal-section">
+  <h2 class="legal-title">Terms of Use</h2>
+  <p class="legal-date">Dot Dash – Fun Way to Learn Morse Code · Last updated: March 13, 2026</p>
+
+  <h3>Acceptance of Terms</h3>
+  <p>By downloading or using Dot Dash – Fun Way to Learn Morse Code ("the App"), you agree to these Terms and Conditions. If you do not agree with the Terms, please do not use the App.</p>
+
+  <h3>Use of the App</h3>
+  <p>The App is provided for educational and entertainment purposes to help users learn Morse Code. You agree to use the App in a lawful manner and not attempt to misuse or interfere with its functionality.</p>
+
+  <h3>No Account Requirement</h3>
+  <p>The App does not require users to create an account or provide personal information.</p>
+
+  <h3>Intellectual Property</h3>
+  <p>All content in the App, including design, graphics, interface, and educational materials, is the property of the developer unless otherwise stated. You may not copy, reproduce, or redistribute the App content without permission.</p>
+
+  <h3>Disclaimer</h3>
+  <p>The App is provided "as is" without warranties of any kind. While efforts are made to ensure accuracy of Morse Code information, the developer does not guarantee that all content is completely error-free.</p>
+
+  <h3>Limitation of Liability</h3>
+  <p>The developer shall not be held responsible for any direct or indirect damages resulting from the use or inability to use the App.</p>
+
+  <h3>Changes to the Terms</h3>
+  <p>These Terms may be updated from time to time. Continued use of the App after changes means you accept the updated Terms.</p>
+
+  <h3>Contact</h3>
+  <p>Developer: Kavyansh Pratap Singh<br>Email: singhkavyanshpratap@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Dot Dash</span>
+  <span class="footer-copy">© 2026 Kavyansh Pratap Singh</span>
+</footer>
 
 <script>
-function showPage(name) {
-  document.getElementById('page-home').style.display = name === 'home' ? 'block' : 'none';
-  document.getElementById('page-privacy').classList.toggle('active', name === 'privacy');
-  document.getElementById('page-terms').classList.toggle('active', name === 'terms');
-  window.scrollTo(0, 0);
-  if (name === 'home') history.pushState(null, '', '#');
-  else history.pushState(null, '', '#' + name);
-}
-
-// Handle direct URL with hash on load
-(function() {
-  const hash = window.location.hash;
-  if (hash === '#privacy') showPage('privacy');
-  else if (hash === '#terms') showPage('terms');
-})();
+document.getElementById('store-img').onerror = function() {
+  document.getElementById('store-link').outerHTML =
+    '<a href="dotdashapp" class="store-fallback" target="_blank">' +
+    '<span style="font-size:22px">&#63743;</span>' +
+    '<span><small>Download on the</small><span>App Store</span></span>' +
+    '</a>';
+};
+</script>
+</body>
+</html>
